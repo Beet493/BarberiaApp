@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Axios from "axios"
 import { Trash2,Pencil } from "lucide-react"
-import API from "../../api"
+import API from "../api"
 
 const COLORES = {
   pendiente:   "bg-yellow-100 text-yellow-700",

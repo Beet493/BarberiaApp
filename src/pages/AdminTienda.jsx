@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import Axios from "axios"
-import API from "../../api"
+import API from "../api"
 
 export function AdminTienda() {
   const usuarioId = localStorage.getItem("id")
