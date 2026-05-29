@@ -10,32 +10,33 @@ export function Barbeross({ nombre, imagen, favorito, esFavorito, whatsapp, onVe
         {nombre}
       </h3>
 
-      <div className="flex gap-2 mt-2">
-        <button
-          onClick={() => favorito({ nombre, imagen })}
-          className={`px-3 py-1 rounded-lg flex items-center justify-center transition 
-            ${esFavorito ? "bg-pink-600 text-white" : "border border-purple-200 hover:bg-pink-600 hover:text-white"}`}
-        >
-          <Heart size={18} fill={esFavorito ? "white" : "none"} />
-        </button>
+      <div className="flex flex-col gap-2 mt-2 w-full items-center">
+  <div className="flex gap-2">
+    <button
+      onClick={() => favorito({ nombre, imagen })}
+      className={`px-3 py-1 rounded-lg flex items-center justify-center transition 
+        ${esFavorito ? "bg-pink-600 text-white" : "border border-purple-200 hover:bg-pink-600 hover:text-white"}`}
+    >
+      <Heart size={18} fill={esFavorito ? "white" : "none"} />
+    </button>
 
-        
-        <a
-          href={whatsapp ? `https://wa.me/52${whatsapp}` : "#"}
-          target="_blank"
-          rel="noreferrer"
-          className="px-3 py-1 border border-purple-200 rounded-lg hover:bg-green-600 hover:text-white transition"
-          >
-            WhatsApp
-        </a>
-        
-        <button 
-          onClick={onVerPerfil}
-          className="px-3 py-1 border border-purple-200 rounded-lg hover:bg-blue-600 hover:text-white transition text-sm"
-        >
-          Ver perfil
-        </button>
-      </div>
+    <a
+      href={whatsapp ? `https://wa.me/52${whatsapp}` : "#"}
+      target="_blank"
+      rel="noreferrer"
+      className="px-3 py-1 border border-purple-200 rounded-lg hover:bg-green-600 hover:text-white transition text-sm"
+    >
+      WhatsApp
+    </a>
+  </div>
+
+  <button
+    onClick={onVerPerfil}
+    className="px-3 py-1 border border-purple-200 rounded-lg hover:bg-blue-600 hover:text-white transition text-sm w-full text-center"
+  >
+    Ver perfil
+  </button>
+</div>
     </div>
   )
 }
