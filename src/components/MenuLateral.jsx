@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import {Home,Settings,CalendarClock,HeartPlus,Users,Tag, X} from "lucide-react"
+import {Home,Settings,CalendarClock,HeartPlus,Users,Tag, X,ClipboardList} from "lucide-react"
 import { NavLink } from "react-router-dom"
 
 export function MenuLateral({isOpen,toggleSidebar}) {
@@ -7,6 +7,7 @@ export function MenuLateral({isOpen,toggleSidebar}) {
  const menuItems = [
     { name: "Home", path: "/home", icon: <Home size={20}/> },
     { name: "Citas", path: "/citas", icon: <CalendarClock size={20}/> },
+    { name: "Mis Citas", path: "/miscitas", icon: <ClipboardList size={20}/> },
     { name: "Barberos", path: "/barberos", icon: <Users size={20}/> },
     { name: "Favoritos", path: "/favoritos", icon: <HeartPlus size={20}/> },
     { name: "Promociones", path: "/promociones", icon: <Tag size={20}/> }

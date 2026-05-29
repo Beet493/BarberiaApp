@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Axios from "axios"
 import API from "../api"
 
+
 const SERVICIOS = ["Corte clásico", "Corte fade", "Barba", "Corte + Barba", "Tinte"]
 
 export function Citas() {

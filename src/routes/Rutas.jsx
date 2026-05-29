@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom"
-import { Login, Home, Gestion, Citas, Barberos, Favoritos, Promociones, Admin, AdminPerfil, AdminCitas, AdminTienda } from "../pages"
+import { Login, Home, Gestion, Citas, Barberos, Favoritos, Promociones, Admin, AdminPerfil, AdminCitas, AdminTienda, MisCitas } from "../pages"
 import { AdminLayouts, AdminLayoutsBarbero } from "../Layouts"
 import { RutaProtegida } from "./RutaProtegida"
 
@@ -13,6 +13,7 @@ export function Rutas() {
         <Route path="/home" element={<Home />} />
         <Route path="/gestion" element={<Gestion />} />
         <Route path="/citas" element={<Citas />} />
+        <Route path="/miscitas" element={<MisCitas />} />
         <Route path="/barberos" element={<Barberos />} />
         <Route path="/favoritos" element={<Favoritos />} />
         <Route path="/promociones" element={<Promociones />} />

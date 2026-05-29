@@ -16,13 +16,16 @@ export function AdminLayouts() {
 
       <div className="flex-1 bg-gray-100 min-w-0 lg:ml-0">
         
-        <Header userName="Julian" toggleSidebar={toggleSidebar}/>
+        <Header toggleSidebar={toggleSidebar}/>
         
 
         {/* Botones de priuncipales, para que aprescas en toda la pagina,PRUIEBA preguntar si se deja o menor nel*/}
         <div className="flex flex-wrap justify-center gap-2 p-3">
           <button onClick={() => navigate("/citas")} className="px-4 py-2 rounded-lg border border-black-200 hover:bg-blue-600 hover:text-white transition">
             Citas
+          </button>
+          <button onClick={() => navigate("/miscitas")} className="px-4 py-2 rounded-lg border border-black-200 hover:bg-blue-600 hover:text-white transition">
+             Mis Citas
           </button>
           <button onClick={() => navigate("/barberos")} className="px-4 py-2 rounded-lg border border-black-200 hover:bg-blue-600 hover:text-white transition">
             Barberos

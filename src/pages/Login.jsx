@@ -17,6 +17,7 @@ export function Login() {
     try {
       const res = await Axios.post(`${API}/api/login`, { correo, contrasena })
       console.log(res.data)
+      
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("rol", res.data.rol)
       localStorage.setItem("nombre", res.data.nombre)

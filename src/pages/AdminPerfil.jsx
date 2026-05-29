@@ -36,7 +36,7 @@ export function AdminPerfil() {
   const [cierre, setCierre] = useState("18:00")
   const [guardado, setGuardado] = useState(false)
   const [error, setError] = useState("")
-  const [nombreUsuario, setNombreUsuario] = useState(localStorage.getItem("nombre") || "")
+
   const [lat, setLat] = useState(17.80615) // coordenadas de Balancán por default
   const [lng, setLng] = useState(-91.53751)
 
@@ -90,12 +90,7 @@ export function AdminPerfil() {
         telefono,
         horarios
       })
-      await Axios.put(`${API}/api/usuario/nombre`, {
-        usuarioId,
-        nombre: nombreUsuario
-      })
       
-      localStorage.setItem("nombre", nombreUsuario)
       setGuardado(true)
       setError("")
       setTimeout(() => setGuardado(false), 3000)
@@ -112,16 +107,7 @@ export function AdminPerfil() {
       {/* Info básica */}
       <div className="bg-white rounded-2xl p-5 shadow-sm space-y-4">
         <h3 className="font-bold text-gray-700">Información básica</h3>
-        <div>
-          <p className="text-sm text-gray-500 mb-1">Tu nombre</p>
-          <input
-            type="text"
-            placeholder="Ej: Juan"
-            className="w-full border rounded-xl px-4 py-2 text-sm outline-none focus:border-blue-400"
-            value={nombreUsuario}
-            onChange={(e) => setNombreUsuario(e.target.value)}
-          />
-        </div>
+        
         <div>
           <p className="text-sm text-gray-500 mb-1">Ubicación — haz click en el mapa</p>
           <div className="rounded-xl overflow-hidden border" style={{ height: "250px", zIndex: 0, position:"relative" }}>
