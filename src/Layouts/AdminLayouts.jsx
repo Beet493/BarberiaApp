@@ -9,12 +9,12 @@ export function AdminLayouts() {
   const toggleSidebar = () => setSideBar(!sideBar)
   const navigate = useNavigate()
   return (
-    <div className="flex min-h-screen bg-gray-100 text-slate-900">
+    <div className="flex bg-gray-100 text-slate-900 min-h-screen">
 
 
       <MenuLateral isOpen={sideBar} toggleSidebar={toggleSidebar} />
 
-      <div className="flex-1 bg-gray-100 p-4">
+      <div className="flex-1 bg-gray-100 min-w-0 lg:ml-0">
         
         <Header userName="Julian" toggleSidebar={toggleSidebar}/>
         
