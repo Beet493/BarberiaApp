@@ -20,7 +20,7 @@ export function AdminLayouts() {
         
 
         {/* Botones de priuncipales, para que aprescas en toda la pagina,PRUIEBA preguntar si se deja o menor nel*/}
-        <div className="felx justify-center flex gap-3 overflow-x-auto p-4">
+        <div className="flex flex-wrap justify-center gap-2 p-3">
           <button onClick={() => navigate("/citas")} className="px-4 py-2 rounded-lg border border-black-200 hover:bg-blue-600 hover:text-white transition">
             Citas
           </button>
