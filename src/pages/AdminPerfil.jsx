@@ -3,6 +3,7 @@ import Axios from "axios"
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
+import API from "../../api"
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -43,7 +44,7 @@ export function AdminPerfil() {
   useEffect(() => {
     const cargarPerfil = async () => {
       try {
-        const res = await Axios.get(`http://localhost:4000/api/barbero/perfil/${usuarioId}`)
+        await Axios.get(`${API}/api/barbero/perfil/${usuarioId}`)
         if (res.data) {
           setUbicacion(res.data.ubicacion || "")
           setPrecio(res.data.precio || "")
@@ -80,7 +81,7 @@ export function AdminPerfil() {
         cierre
       }))
 
-      await Axios.post("http://localhost:4000/api/barbero/perfil", {
+      await Axios.post(`${API}/api/barbero/perfil`, {
         usuarioId,
         ubicacion,
         lat, 
@@ -89,7 +90,7 @@ export function AdminPerfil() {
         telefono,
         horarios
       })
-      await Axios.put("http://localhost:4000/api/usuario/nombre", {
+      await Axios.put(`${API}/api/usuario/nombre`, {
         usuarioId,
         nombre: nombreUsuario
       })

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import Axios from "axios"
 import { Trash2,Pencil } from "lucide-react"
+import API from "../../api"
+
 const COLORES = {
   pendiente:   "bg-yellow-100 text-yellow-700",
   aceptada:    "bg-green-100 text-green-700",
@@ -18,7 +20,7 @@ const [nuevaHora, setNuevaHora] = useState("")
 
   const cargarCitas = async () => {
     try {
-      const res = await Axios.get(`http://localhost:4000/api/cita/barbero/${barberoId}`)
+      const res = await Axios.get(`${API}/api/cita/barbero/${barberoId}`)
       setCitas(res.data)
     } catch (error) {
       console.log(error)
@@ -33,7 +35,7 @@ const [nuevaHora, setNuevaHora] = useState("")
 
   const cambiarEstado = async (id, estado) => {
     try {
-      await Axios.put(`http://localhost:4000/api/cita/estado/${id}`, { estado })
+      await Axios.put(`${API}/api/cita/estado/${id}`, { estado })
       cargarCitas()
     } catch (error) {
       console.log(error)

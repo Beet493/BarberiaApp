@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Axios from "axios"
+import API from "../../api"
 
 export function AdminTienda() {
   const usuarioId = localStorage.getItem("id")
@@ -15,7 +16,7 @@ export function AdminTienda() {
   useEffect(() => {
     const cargar = async () => {
       try {
-        const res = await Axios.get(`http://localhost:4000/api/barbero/perfil/${usuarioId}`)
+        const res = await Axios.get(`${API}/api/barbero/perfil/${usuarioId}`)
         if (res.data) {
           setNombreTienda(res.data.nombreTienda || "")
           setWhatsapp(res.data.whatsapp || "")
@@ -44,7 +45,7 @@ export function AdminTienda() {
       formData.append("foto", foto)
       formData.append("usuarioId", usuarioId)
 
-      const res = await Axios.post("http://localhost:4000/api/barbero/foto", formData, {
+      const res = await Axios.post(`${API}/api/barbero/foto`, formData, {
         headers: { "Content-Type": "multipart/form-data" }
       })
       setFotoActual(res.data.foto)
@@ -59,7 +60,7 @@ export function AdminTienda() {
 
   const guardar = async () => {
     try {
-      await Axios.post("http://localhost:4000/api/barbero/perfil", {
+      await Axios.post(`${API}/api/barbero/perfil`, {
         usuarioId,
         nombreTienda,
         whatsapp

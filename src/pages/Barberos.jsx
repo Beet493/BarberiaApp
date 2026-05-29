@@ -4,6 +4,7 @@ import { ModalBarbero } from "../components"
 import { useContext } from "react"
 import { FavoritosContext } from "../context/FavoritosContext"
 import Axios from "axios"
+import API from "../api"
 
 export function Barberos() {
   const { favoritos, toggleFavorito } = useContext(FavoritosContext)
@@ -13,7 +14,7 @@ export function Barberos() {
   useEffect(() => {
     const cargar = async () => {
       try {
-        const res = await Axios.get("http://localhost:4000/api/barbero/todos")
+        const res = await Axios.get(`${API}/api/barbero/todos`)
         setBarberos(res.data)
       } catch (error) {
         console.log(error)

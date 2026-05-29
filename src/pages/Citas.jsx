@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Axios from "axios"
+import API from "../api"
 
 const SERVICIOS = ["Corte clásico", "Corte fade", "Barba", "Corte + Barba", "Tinte"]
 
@@ -18,7 +19,7 @@ export function Citas() {
   useEffect(() => {
     const cargar = async () => {
       try {
-        const res = await Axios.get("http://localhost:4000/api/barbero/todos")
+        const res = await Axios.get(`${API}/api/barbero/todos`)
         setBarberos(res.data)
       } catch (error) {
         console.log(error)
@@ -59,7 +60,7 @@ export function Citas() {
     e.preventDefault()
     setError("")
     try {
-      await Axios.post("http://localhost:4000/api/cita/crear", {
+      await Axios.post(`${API}/api/cita/crear`, {
         cliente: clienteNombre,
         barbero: barberoSeleccionado.usuario.nombre,
         barberoId: barberoSeleccionado.usuario._id,

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Axios from "axios"
+import API from "../api"
 
 export function Login() {
   const [vista, setVista] = useState("login") // "login" | "elegir" | "registro"
@@ -14,7 +15,7 @@ export function Login() {
   const manejarLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await Axios.post("http://localhost:4000/api/login", { correo, contrasena })
+      const res = await Axios.post(`${API}/api/login`, { correo, contrasena })
       console.log(res.data)
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("rol", res.data.rol)
@@ -29,7 +30,7 @@ export function Login() {
   const manejarRegistro = async (e) => {
     e.preventDefault()
     try {
-      await Axios.post("http://localhost:4000/api/registro", { nombre, correo, contrasena, rol })
+      await Axios.post(`${API}/api/registro`, { nombre, correo, contrasena, rol })
       setVista("login")
       setError("Cuenta creada, ya puedes iniciar sesión")
     } catch {
